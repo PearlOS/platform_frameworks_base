@@ -42,16 +42,20 @@ public class ScreenPinningNotify {
 
     /** Show "Screen pinned" toast. */
     public void showPinningStartToast() {
-        makeAllUserToastAndShow(R.string.screen_pinning_start);
+        makeAllUserToastAndShow(mContext.getString(R.string.screen_pinning_start));
     }
 
     /** Show "Screen unpinned" toast. */
     public void showPinningExitToast() {
-        makeAllUserToastAndShow(R.string.screen_pinning_exit);
+        makeAllUserToastAndShow(mContext.getString(R.string.screen_pinning_exit));
     }
 
     /** Show a toast that describes the gesture the user should use to escape pinned mode. */
+<<<<<<< HEAD
     public void showEscapeToast(boolean isGestureNavEnabled, boolean isRecentsButtonVisible) {
+=======
+    public void showEscapeToast(boolean isRecentsButtonVisible, boolean isGesturalMode) {
+>>>>>>> 4271cc6cc3f... SystemUI: Fix escape text when screen pinned and gestural mode enabled
         long showToastTime = SystemClock.elapsedRealtime();
         if ((showToastTime - mLastShowToastTime) < SHOW_TOAST_MINIMUM_INTERVAL) {
             Slog.i(TAG, "Ignore toast since it is requested in very short interval.");
@@ -60,16 +64,25 @@ public class ScreenPinningNotify {
         if (mLastToast != null) {
             mLastToast.cancel();
         }
+<<<<<<< HEAD
         mLastToast = makeAllUserToastAndShow(isGestureNavEnabled
                 ? R.string.screen_pinning_toast_gesture_nav
                 : isRecentsButtonVisible
                         ? R.string.screen_pinning_toast
                         : R.string.screen_pinning_toast_recents_invisible);
+=======
+        String gesturalText = mContext.getString(R.string.screen_pinning_title) +
+                "\n\n" + mContext.getString(R.string.screen_pinning_description_gestural);
+        mLastToast = makeAllUserToastAndShow(isRecentsButtonVisible
+                ? mContext.getString(R.string.screen_pinning_toast)
+                : isGesturalMode ? gesturalText
+                : mContext.getString(R.string.screen_pinning_toast_recents_invisible));
+>>>>>>> 4271cc6cc3f... SystemUI: Fix escape text when screen pinned and gestural mode enabled
         mLastShowToastTime = showToastTime;
     }
 
-    private Toast makeAllUserToastAndShow(int resId) {
-        Toast toast = SysUIToast.makeText(mContext, resId, Toast.LENGTH_LONG);
+    private Toast makeAllUserToastAndShow(String text) {
+        Toast toast = SysUIToast.makeText(mContext, text, Toast.LENGTH_LONG);
         toast.show();
         return toast;
     }

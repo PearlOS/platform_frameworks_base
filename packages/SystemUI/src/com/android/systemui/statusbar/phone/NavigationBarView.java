@@ -951,8 +951,12 @@ public class NavigationBarView extends FrameLayout implements
     }
 
     public void showPinningEscapeToast() {
+<<<<<<< HEAD
         mScreenPinningNotify.showEscapeToast(
                 mNavBarMode == NAV_BAR_MODE_GESTURAL, isRecentsButtonVisible());
+=======
+        mScreenPinningNotify.showEscapeToast(isRecentsButtonVisible(), isGesturalMode(mNavBarMode));
+>>>>>>> 4271cc6cc3f... SystemUI: Fix escape text when screen pinned and gestural mode enabled
     }
 
     public boolean isVertical() {
