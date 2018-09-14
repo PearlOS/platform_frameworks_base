@@ -1003,6 +1003,16 @@ public class Build {
     public static final String FINGERPRINT = deriveFingerprint();
 
     /**
+     * Octavi fingerprint
+     * @hide
+     */
+    public static final String PROP_OCTAVI_FINGERPRINT = "org.octavi.fingerprint";
+
+    /** @hide */
+    public static final String OCTAVI_FINGERPRINT = SystemProperties.get(PROP_OCTAVI_FINGERPRINT,
+            deriveFingerprint());
+
+    /**
      * Some devices split the fingerprint components between multiple
      * partitions, so we might derive the fingerprint at runtime.
      */
