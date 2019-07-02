@@ -424,25 +424,8 @@ public class BatteryMeterView extends LinearLayout implements
         }
     }
 
-    public void isQsbHeader() {
-        misQsbHeader = true;
-    }
-
-    public void setShowEstimate(boolean showEstimate) {
-        mShowEstimate = showEstimate;
-    }
-
-    private boolean alwaysShowPercentage() {
-        return getMeterStyle() == BatteryMeterDrawableBase.BATTERY_STYLE_TEXT
-                || (misQsbHeader
-                && (getMeterStyle() == BatteryMeterDrawableBase.BATTERY_STYLE_HIDDEN
-                || (getMeterStyle() != BatteryMeterDrawableBase.BATTERY_STYLE_HIDDEN
-                && mShowPercent == 0/*hidden*/)));
-    }
-
-    private void updateBatteryStyle(String styleStr) {
-        final int style = styleStr == null ?
-                BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT : Integer.parseInt(styleStr);
+    private void updateBatteryStyle() {
+        final int style = mStyle;
         mDrawable.setMeterStyle(style);
         useWallpaperTextColor(mUseWallpaperTextColors, true);
 
