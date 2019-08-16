@@ -4788,6 +4788,15 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Whether tethering is allowed to use VPN upstreams
+         * 0 = false, 1 = true
+         */
+        public static final String TETHERING_ALLOW_VPN_UPSTREAMS = "tethering_allow_vpn_upstreams";
+
+        /** @hide */
+        public static final Validator TETHERING_ALLOW_VPN_UPSTREAMS_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -5009,6 +5018,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_SHOW_AUTO_BRIGHTNESS);
             PRIVATE_SETTINGS.add(QS_SHOW_BRIGHTNESS_SLIDER);
             PRIVATE_SETTINGS.add(STATUS_BAR_BRIGHTNESS_CONTROL);
+            PRIVATE_SETTINGS.add(TETHERING_ALLOW_VPN_UPSTREAMS);
         }
 
         /**
@@ -5132,6 +5142,7 @@ public final class Settings {
             VALIDATORS.put(QS_SHOW_AUTO_BRIGHTNESS, QS_SHOW_AUTO_BRIGHTNESS_VALIDATOR);
             VALIDATORS.put(QS_SHOW_BRIGHTNESS_SLIDER, QS_SHOW_BRIGHTNESS_SLIDER_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_BRIGHTNESS_CONTROL, STATUS_BAR_BRIGHTNESS_CONTROL_VALIDATOR);
+            VALIDATORS.put(TETHERING_ALLOW_VPN_UPSTREAMS, TETHERING_ALLOW_VPN_UPSTREAMS_VALIDATOR);
         }
 
         /**
