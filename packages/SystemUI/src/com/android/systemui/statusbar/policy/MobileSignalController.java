@@ -103,6 +103,7 @@ public class MobileSignalController extends SignalController<
     private ImsManager.Connector mImsManagerConnector;
     private boolean mVolteIcon;
     private boolean mRoamingIconAllowed;
+    private boolean mDataDisabledIcon;
 
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
     // need listener lists anymore.
@@ -171,6 +172,7 @@ public class MobileSignalController extends SignalController<
 
         Dependency.get(TunerService.class).addTunable(this, "volte");
         Dependency.get(TunerService.class).addTunable(this, "roaming");
+        Dependency.get(TunerService.class).addTunable(this, "data_disabled");
     }
 
     @Override
@@ -183,6 +185,11 @@ public class MobileSignalController extends SignalController<
                 break;
             case "roaming":
                      mRoamingIconAllowed =
+                        TunerService.parseIntegerSwitch(newValue, true);
+                     updateTelephony();
+                break;
+            case "data_disabled":
+                     mDataDisabledIcon  =
                         TunerService.parseIntegerSwitch(newValue, true);
                      updateTelephony();
                 break;
@@ -636,7 +643,7 @@ public class MobileSignalController extends SignalController<
         mCurrentState.roaming = isRoaming() && mRoamingIconAllowed;
         if (isCarrierNetworkChangeActive()) {
             mCurrentState.iconGroup = TelephonyIcons.CARRIER_NETWORK_CHANGE;
-        } else if (isDataDisabled() && !mConfig.alwaysShowDataRatIcon) {
+        } else if (isDataDisabled() && mDataDisabledIcon) {
             if (mSubscriptionInfo.getSubscriptionId()
                     != mDefaults.getDefaultDataSubId()) {
                 mCurrentState.iconGroup = TelephonyIcons.NOT_DEFAULT_DATA;
