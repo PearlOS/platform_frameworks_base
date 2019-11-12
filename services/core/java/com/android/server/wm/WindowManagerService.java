@@ -3046,7 +3046,7 @@ public class WindowManagerService extends IWindowManager.Stub
 
     private float animationScalesCheck (int which) {
         float value = -1.0f;
-        if (!mAnimationsDisabled || !mAnimationsForceDisabled) {
+        if (!mAnimationsDisabled) {
             if (value == -1.0f) {
                 switch (which) {
                     case WINDOW_ANIMATION_SCALE: value = mWindowAnimationScaleSetting; break;
