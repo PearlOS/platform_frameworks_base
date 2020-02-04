@@ -39,6 +39,7 @@ import android.view.InputDevice;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 
+import java.util.List;
 import java.util.Locale;
 import com.android.internal.R;
 import com.android.internal.statusbar.IStatusBarService;
