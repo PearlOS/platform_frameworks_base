@@ -4727,6 +4727,17 @@ public final class Settings {
                 ANY_STRING_VALIDATOR;
 
         /**
+         * Whether to scramble a pin unlock layout
+         * 0 = 0ff, 1 = on
+         */
+        public static final String LOCKSCREEN_PIN_SCRAMBLE_LAYOUT =
+                "lockscreen_scramble_pin_layout";
+
+        /** @hide */
+        public static final Validator LOCKSCREEN_PIN_SCRAMBLE_LAYOUT_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -4942,6 +4953,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(REFRESH_RATE_SETTING);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_MODE_OVERLAY);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HEIGHT);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_PIN_SCRAMBLE_LAYOUT);
         }
 
         /**
@@ -5059,6 +5071,7 @@ public final class Settings {
             VALIDATORS.put(REFRESH_RATE_SETTING, REFRESH_RATE_SETTING_VALIDATOR);
             VALIDATORS.put(NAVIGATION_BAR_MODE_OVERLAY, NAVIGATION_BAR_MODE_OVERLAY_VALIDATOR);
             VALIDATORS.put(BACK_GESTURE_HEIGHT, BACK_GESTURE_HEIGHT_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_PIN_SCRAMBLE_LAYOUT, LOCKSCREEN_PIN_SCRAMBLE_LAYOUT_VALIDATOR);
         }
 
         /**
