@@ -5059,6 +5059,12 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(-3, 1);
 
         /**
+         * Some creation simillar to samsung OneUI
+         * @hide
+         */
+        public static final String SETTINGS_SPACER = "settings_spacer";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
