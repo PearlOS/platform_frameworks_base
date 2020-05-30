@@ -233,5 +233,9 @@
     <string name="config_oemFastChargerStatusPath" translatable="false"></string>
     <!-- Expected value from fast charging status file  -->
     <string name="config_oemFastChargerStatusValue" translatable="false"></string>
+    
+    <!-- Timeout in MS for how long you have to long-press the back key to
+         kill the foreground app. -->
+    <integer name="config_backKillTimeout">2000</integer>
 
 </resources>

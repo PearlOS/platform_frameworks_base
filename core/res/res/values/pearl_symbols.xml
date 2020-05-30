@@ -99,4 +99,8 @@
     <!-- Expected value from fast charging status file -->
     <java-symbol type="string" name="config_oemFastChargerStatusValue" />
 
+    <!-- Back kill -->
+    <java-symbol type="string" name="app_killed_message" />
+    <java-symbol type="integer" name="config_backKillTimeout" />
+
 </resources>
