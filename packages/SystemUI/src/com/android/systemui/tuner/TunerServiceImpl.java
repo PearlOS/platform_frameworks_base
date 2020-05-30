@@ -37,6 +37,7 @@ import com.android.internal.util.ArrayUtils;
 import com.android.systemui.DemoMode;
 import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.settings.CurrentUserTracker;
+import com.android.systemui.statusbar.phone.EdgeBackGestureHandler;
 import com.android.systemui.statusbar.phone.NotificationPanelView;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.phone.StatusBar;
@@ -63,6 +64,7 @@ public class TunerServiceImpl extends TunerService {
     // Things that use the tunable infrastructure but are now real user settings and
     // shouldn't be reset with tuner settings.
     private static final String[] RESET_BLACKLIST = new String[] {
+            EdgeBackGestureHandler.KEY_EDGE_LONG_SWIPE_ACTION,
             NotificationPanelView.DOUBLE_TAP_SLEEP_GESTURE,
             QSTileHost.TILES_SETTING,
             Settings.Secure.DOZE_ALWAYS_ON,
