@@ -7433,5 +7433,6 @@ message MetricsEvent {
     // CustomSettings constant
     CUSTOM_SETTINGS = 1999;
 
+    SHELLEXTRAS = 2000;
   }
 }
