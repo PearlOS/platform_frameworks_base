@@ -49,7 +49,7 @@ public interface NetworkController extends CallbackController<SignalCallback>, D
 
     public interface SignalCallback {
         default void setWifiIndicators(boolean enabled, IconState statusIcon, IconState qsIcon,
-                boolean activityIn, boolean activityOut, String description, boolean isTransient,
+                boolean activityIn, boolean activityOut, int volteIcon, String description, boolean isTransient,
                 String statusLabel) {}
 
         /**
