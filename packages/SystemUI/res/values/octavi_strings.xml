@@ -26,7 +26,6 @@
     <string name="custom_hint">Swipe from icon to launch</string>
 
     <!-- StatusBar tuner icons -->
-    <string name="status_bar_volte">VoLTE</string>
     <string name="status_bar_data_disabled">Crosses when data is disabled</string>
 
     <string name="tuner_quick_settings">Quick settings</string>
