@@ -415,7 +415,7 @@ public class PhoneStatusBarPolicy
         int iconId = R.drawable.stat_sys_data_bluetooth_connected;
         String contentDescription =
                 mContext.getString(R.string.accessibility_quick_settings_bluetooth_on);
-        boolean bluetoothEnabled = false;
+        boolean bluetoothVisible = false;
         if (mBluetooth != null) {
             if (mBluetooth.isBluetoothConnected()
                     && (mBluetooth.isBluetoothAudioActive()
@@ -438,15 +438,15 @@ public class PhoneStatusBarPolicy
                             iconId = R.drawable.stat_sys_data_bluetooth_connected;
                         }
                         contentDescription = mContext.getString(R.string.accessibility_bluetooth_connected);
+                        bluetoothVisible = mBluetooth.isBluetoothEnabled();
                         break;
                     }
                 }
             }
-            }
         }
 
         mIconController.setIcon(mSlotBluetooth, iconId, contentDescription);
-        mIconController.setIconVisibility(mSlotBluetooth, bluetoothEnabled);
+        mIconController.setIconVisibility(mSlotBluetooth, bluetoothVisible);
     }
 
     private int getBtLevelIconRes(int batteryLevel) {
